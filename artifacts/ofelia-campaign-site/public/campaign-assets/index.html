@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ofelia Bello for East Palo Alto City Council</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B1330;
+    --navy-deep:#120C22;
+    --poppy:#FE7625;
+    --sage:#7FA66B;
+    --gold:#F0B429;
+    --cream:#FBF3E7;
+    --ink:#20172E;
+    --ink-soft:#5F5670;
+    --line:rgba(27,19,48,0.12);
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  h1,h2,h3{
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    line-height:1.12;
+    margin:0;
+    color:var(--navy);
+  }
+  :focus-visible{outline:3px solid var(--poppy);outline-offset:3px;}
+
+  /* ---------- Header ---------- */
+  header{
+    background:#fff;
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:var(--max);margin:0 auto;
+  }
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo img{height:38px;width:auto;}
+  .nav-links{display:flex;align-items:center;gap:34px;list-style:none;margin:0;padding:0;}
+  .nav-links a{
+    text-decoration:none;font-weight:500;font-size:13.5px;letter-spacing:0.04em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  .nav-links a:hover{color:var(--navy);}
+  .nav-cta{
+    background:var(--sage);color:#fff !important;font-weight:600;font-size:13.5px;
+    padding:10px 20px;border-radius:30px;text-decoration:none;white-space:nowrap;
+    text-transform:uppercase;letter-spacing:0.03em;
+  }
+  .nav-cta:hover{background:#6c9059;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;background:radial-gradient(ellipse 900px 500px at 30% 0%, #2A1F49 0%, var(--navy) 55%, var(--navy-deep) 100%);
+    color:#fff;overflow:hidden;
+  }
+  .hero .wrap{
+    padding:96px 32px 140px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;
+  }
+  .hero .eyebrow{
+    font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);
+    font-weight:600;margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,4.6vw,3.4rem);max-width:16ch;color:#fff;
+  }
+  .hero h1 .hl{color:var(--poppy);}
+  .hero h1 .hl2{color:var(--sage);}
+  .hero p.lede{
+    font-size:18px;color:#CBC0DE;max-width:56ch;margin:26px auto 0;
+  }
+  .hero-actions{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;justify-content:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:32px;font-weight:600;
+    text-decoration:none;font-size:14.5px;transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--sage);color:#fff;}
+  .btn-primary:hover{background:#6c9059;}
+  .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.5);}
+  .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff;}
+
+  .hero-photo-wrap{margin-top:56px;position:relative;z-index:2;}
+  .hero-photo-wrap img{max-height:360px;width:auto;margin:0 auto;border-radius:12px 12px 0 0;}
+
+  /* floating event card */
+  .event-float{
+    position:absolute;right:28px;bottom:26px;z-index:5;
+    background:#fff;color:var(--ink);border-radius:14px;
+    padding:14px 18px;display:flex;align-items:center;gap:12px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.35);max-width:290px;
+    text-decoration:none;
+  }
+  .event-float .dot{
+    width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0;
+  }
+  .event-float .when{font-size:11.5px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;color:var(--poppy);}
+  .event-float .what{font-size:13.5px;font-weight:600;margin-top:2px;}
+
+  /* ---------- Section shell ---------- */
+  section{padding:110px 0;}
+  .section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .section-eyebrow{
+    font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--poppy);
+    font-weight:700;margin-bottom:14px;
+  }
+  .section-head h2{font-size:clamp(1.9rem,3vw,2.5rem);}
+  .section-head p{color:var(--ink-soft);margin-top:16px;font-size:17px;}
+
+  /* ---------- Meet Ofelia (outcomes-style) ---------- */
+  .meet{background:#fff;}
+  .meet .wrap{max-width:820px;text-align:center;}
+  .meet .pullquote{
+    font-family:'Playfair Display',serif;font-style:italic;color:var(--navy);
+    font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.4;margin:0 auto 44px;max-width:34ch;
+  }
+  .bio{text-align:left;max-width:680px;margin:0 auto;}
+  .bio p{margin:0 0 20px;color:var(--ink);font-size:17px;}
+  .bio p:last-child{margin-bottom:0;}
+  .bio strong{color:var(--navy);}
+
+  /* ---------- Priorities ---------- */
+  .priorities{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .priority-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+  .priority{
+    background:var(--cream);padding:38px 32px;
+  }
+  .priority .num{font-family:'Playfair Display',serif;font-size:14px;color:var(--poppy);font-weight:700;margin-bottom:14px;display:block;}
+  .priority h3{font-size:18.5px;margin-bottom:10px;}
+  .priority p{margin:0;color:var(--ink-soft);font-size:15px;}
+
+  /* ---------- Track record timeline ---------- */
+  .record{background:#fff;}
+  .record .wrap{max-width:780px;}
+  .timeline{display:flex;flex-direction:column;}
+  .tl-item{
+    display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line);
+  }
+  .tl-item:last-child{border-bottom:1px solid var(--line);}
+  .tl-item .tl-when{font-weight:700;color:var(--poppy);font-size:13.5px;letter-spacing:0.03em;text-transform:uppercase;padding-top:4px;}
+  .tl-item h3{font-size:18.5px;margin:0 0 8px;}
+  .tl-item p{margin:0;color:var(--ink-soft);}
+
+  /* ---------- Event / district-style section ---------- */
+  .event{background:var(--navy);color:#fff;}
+  .event .section-head p{color:#CBC0DE;}
+  .event .section-head h2{color:#fff;}
+  .event-panel{
+    max-width:920px;margin:0 auto;background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.15);border-radius:18px;overflow:hidden;
+    display:grid;grid-template-columns:1fr 1fr;
+  }
+  .event-info{padding:40px;}
+  .event-row{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .event-row:first-child{padding-top:0;}
+  .event-row:last-child{border-bottom:none;}
+  .event-row .label{width:80px;flex-shrink:0;font-weight:700;color:var(--gold);font-size:12.5px;text-transform:uppercase;letter-spacing:0.04em;padding-top:2px;}
+  .event-row .value{font-size:16px;}
+  .event-row .value small{display:block;color:#B8ACCB;font-size:13.5px;margin-top:2px;}
+  .event-es{margin-top:22px;padding-top:18px;border-top:1px dashed rgba(255,255,255,0.2);font-size:14px;color:#CBC0DE;}
+  .event-es strong{color:#fff;}
+  .event .btn-primary{margin-top:26px;}
+  .event-media{position:relative;}
+  .event-media img{height:100%;width:100%;object-fit:cover;}
+
+  /* ---------- Stay connected (signup style) ---------- */
+  .connect{background:var(--cream);text-align:center;}
+  .connect .wrap{max-width:640px;}
+  .connect form{
+    display:flex;gap:12px;margin-top:32px;max-width:460px;margin-left:auto;margin-right:auto;
+  }
+  .connect input[type=email]{
+    flex:1;padding:14px 18px;border-radius:30px;border:1.5px solid var(--line);font-size:15px;
+    font-family:'Inter',sans-serif;background:#fff;color:var(--ink);
+  }
+  .connect input[type=email]:focus{outline:none;border-color:var(--sage);}
+  .connect button{
+    background:var(--navy);color:#fff;border:none;padding:14px 26px;border-radius:30px;
+    font-weight:600;font-size:14.5px;cursor:pointer;white-space:nowrap;
+  }
+  .connect button:hover{background:#2A1F49;}
+
+  .involved-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:56px;}
+  .involve-card{background:#fff;padding:34px 28px;text-align:left;}
+  .involve-card h3{font-size:19px;margin-bottom:10px;}
+  .involve-card p{color:var(--ink-soft);font-size:15px;margin:0 0 18px;}
+  .involve-card a{font-weight:600;color:var(--poppy);text-decoration:none;font-size:14.5px;}
+  .involve-card a:hover{text-decoration:underline;}
+
+  /* ---------- Footer ---------- */
+  .skyline-band{width:100%;line-height:0;background:var(--navy-deep);}
+  .skyline-band img{width:100%;height:auto;opacity:0.85;}
+  footer{background:var(--navy-deep);color:#B8ACCB;padding:56px 0 28px;}
+  .footer-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .footer-top img{height:40px;}
+  .footer-top p{max-width:44ch;font-size:14px;margin:0;}
+  .footer-nav{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+  .footer-nav a{color:#B8ACCB;text-decoration:none;font-size:14px;}
+  .footer-nav a:hover{color:#fff;}
+  .footer-bottom{display:flex;justify-content:center;text-align:center;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:12.5px;color:#8577A0;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:880px){
+    .nav-links{display:none;}
+    .priority-list{grid-template-columns:1fr;}
+    .event-panel{grid-template-columns:1fr;}
+    .event-media{min-height:220px;}
+    .involved-grid{grid-template-columns:1fr;}
+    .tl-item{grid-template-columns:1fr;gap:8px;}
+    .connect form{flex-direction:column;}
+    .event-float{position:static;margin:28px auto 0;max-width:100%;justify-content:center;}
+    section{padding:72px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="nav-logo" href="#">
+      <img src="ofelia_logo.png" alt="Ofelia Bello for East Palo Alto City Council">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#meet">About</a></li>
+      <li><a href="#priorities">Platform</a></li>
+      <li><a href="#record">Record</a></li>
+      <li><a href="#event">Event</a></li>
+    </ul>
+    <a class="nav-cta" href="#involved">Donate</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">East Palo Alto City Council</span>
+    <h1>She grew up here. Now she wants to <span class="hl">serve</span> here.</h1>
+    <p class="lede">Ofelia Bello is a first-generation graduate, housing advocate, and lifelong East Palo Alto resident who has spent the last decade fighting for the people who built this city.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#event">RSVP for the Campaign Kickoff</a>
+      <a class="btn btn-outline" href="#meet">Meet Ofelia</a>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="ofelia_photo.png" alt="Ofelia Bello">
+    </div>
+  </div>
+  <a class="event-float" href="#event">
+    <span class="dot"></span>
+    <span>
+      <span class="when">Sat, Sept 5 · 11:30am–12:30pm</span>
+      <span class="what">Campaign Kickoff at Taqueria La Cazuela</span>
+    </span>
+  </a>
+</section>
+
+<section id="meet" class="meet">
+  <div class="wrap">
+    <div class="section-eyebrow">Meet Ofelia</div>
+    <p class="pullquote">"I will always keep in mind what is best for ordinary and working-class people in EPA — not what suits corporate or individual interests."</p>
+    <div class="bio">
+      <p>I'm a <strong>33-year-old Latina professional</strong>, proudly born and raised in East Palo Alto. As a <strong>first-generation college graduate</strong> with a master's degree in Urban Affairs and Public Policy, I've dedicated the last ten years to volunteering with local organizations — advocating for affordable housing, fighting for renters' rights, promoting equitable community development, and working to create a safer, healthier community for all.</p>
+      <p>Professionally, I led a local, grassroots nonprofit organization focused on social, environmental, and racial justice for six years. Currently, I'm executive director of <strong>Pahali Community Land Trust</strong>.</p>
+      <p>I also served five years on the <strong>East Palo Alto Planning Commission</strong>, where I was vice-chair and a consistent, strong voice for equitable development that prioritizes our residents' needs and respects our city's vision. In 2022, voters elected me to the <strong>East Palo Alto Sanitary District</strong>, where I've vocally advocated for transparent and efficient governance that prioritizes our ratepayers.</p>
+      <p>The residents of EPA will be at the forefront of my decisions. Please vote for me, Ofelia Bello, to faithfully serve our community's interests.</p>
+    </div>
+  </div>
+</section>
+
+<section id="priorities" class="priorities">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">The Platform</div>
+      <h2>What she's fighting for</h2>
+      <p>A platform built on ten years of organizing alongside EPA residents — not around them.</p>
+    </div>
+  </div>
+  <div class="priority-list">
+    <div class="priority">
+      <span class="num">01</span>
+      <h3>Affordable Housing &amp; Renters' Rights</h3>
+      <p>Protecting the residents who make EPA home and expanding housing that working families can actually afford.</p>
+    </div>
+    <div class="priority">
+      <span class="num">02</span>
+      <h3>Equitable Community Development</h3>
+      <p>Growth that respects the city's vision and prioritizes the needs of residents over corporate interests.</p>
+    </div>
+    <div class="priority">
+      <span class="num">03</span>
+      <h3>Transparent, Accountable Government</h3>
+      <p>Efficient, transparent governance that puts ratepayers and residents first — not politics as usual.</p>
+    </div>
+    <div class="priority">
+      <span class="num">04</span>
+      <h3>Environmental &amp; Racial Justice</h3>
+      <p>Continuing the grassroots fight for a healthier, more just East Palo Alto for every community.</p>
+    </div>
+    <div class="priority">
+      <span class="num">05</span>
+      <h3>A Safer, Healthier EPA</h3>
+      <p>Building a community where every resident — not just some — can feel safe, supported, and heard.</p>
+    </div>
+    <div class="priority">
+      <span class="num">06</span>
+      <h3>Residents First</h3>
+      <p>Every decision measured against one question: what's best for ordinary, working-class EPA families?</p>
+    </div>
+  </div>
+</section>
+
+<section id="record" class="record">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Track Record</div>
+      <h2>A record of service</h2>
+      <p>Ofelia's leadership in East Palo Alto didn't start with this campaign.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-when">6 Years</div>
+        <div>
+          <h3>Executive Director, grassroots nonprofit</h3>
+          <p>Led a local organization focused on social, environmental, and racial justice for the East Palo Alto community.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">5 Years</div>
+        <div>
+          <h3>Vice Chair, East Palo Alto Planning Commission</h3>
+          <p>A consistent, strong voice for equitable development that prioritizes residents' needs and respects the city's vision.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">2022</div>
+        <div>
+          <h3>Elected, East Palo Alto Sanitary District</h3>
+          <p>Advocated for transparent and efficient governance that prioritizes ratepayers.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Today</div>
+        <div>
+          <h3>Executive Director, Pahali Community Land Trust</h3>
+          <p>Continuing the work of equitable housing and community ownership in East Palo Alto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="event" class="event">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Campaign Kickoff</div>
+      <h2>Community. Food. Conversation.</h2>
+      <p>Come meet Ofelia and hear her vision for East Palo Alto.</p>
+    </div>
+    <div class="event-panel">
+      <div class="event-info">
+        <div class="event-row">
+          <div class="label">Date</div>
+          <div class="value">Saturday, September 5</div>
+        </div>
+        <div class="event-row">
+          <div class="label">Time</div>
+          <div class="value">11:30 AM – 12:30 PM</div>
+        </div>
+        <div class="event-row">
+          <div class="label">Where</div>
+          <div class="value">Taqueria La Cazuela<small>2390 Clarke Ave, East Palo Alto, CA — garden / patio</small></div>
+        </div>
+        <div class="event-row">
+          <div class="label">Follow</div>
+          <div class="value">@ofelia_4epa on Instagram &amp; Facebook</div>
+        </div>
+        <div class="event-es">
+          <strong>En español:</strong> Lanzamiento de campaña para consejo municipal — sábado 5 de septiembre, 11:30&nbsp;am–12:30&nbsp;pm, La Cazuela, 2390 Clarke Ave.
+        </div>
+        <a class="btn btn-primary" href="#">RSVP Now</a>
+      </div>
+      <div class="event-media">
+        <img src="venue_map.png" alt="Aerial view of Taqueria La Cazuela, the kickoff venue">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="involved" class="connect">
+  <div class="wrap">
+    <div class="section-eyebrow">Get Involved</div>
+    <h2>Join the campaign for a better East Palo Alto</h2>
+    <p style="color:var(--ink-soft);margin-top:16px;font-size:17px;">Campaigns like this run on neighbors, not corporate donors.</p>
+    <form>
+      <input type="email" placeholder="your@email.com" aria-label="Email address" required>
+      <button type="submit">Sign up</button>
+    </form>
+  </div>
+  <div class="wrap">
+    <div class="involved-grid">
+      <div class="involve-card">
+        <h3>Volunteer</h3>
+        <p>Knock doors, phone bank, or help out at the kickoff and future events.</p>
+        <a href="#">Sign up to volunteer →</a>
+      </div>
+      <div class="involve-card">
+        <h3>Chip In</h3>
+        <p>Grassroots campaigns are funded by residents like you, not corporate PACs.</p>
+        <a href="#">Donate to the campaign →</a>
+      </div>
+      <div class="involve-card">
+        <h3>Spread the Word</h3>
+        <p>Follow along and share the campaign with friends and neighbors in EPA.</p>
+        <a href="#">Follow @ofelia_4epa →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="skyline-band">
+  <img src="epa_skyline.png" alt="East Palo Alto skyline illustration">
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <img src="ofelia_logo.png" alt="Ofelia Bello for East Palo Alto City Council">
+      <p>A grassroots campaign for East Palo Alto City Council, powered by the residents who call this city home.</p>
+      <nav class="footer-nav">
+        <a href="#meet">About Ofelia</a>
+        <a href="#priorities">Platform</a>
+        <a href="#record">Record</a>
+        <a href="#event">Kickoff Event</a>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ofelia Bello for East Palo Alto City Council.</span>
+      <span>&nbsp;·&nbsp;Paid for by [Committee Name] — FPPC #[ID]</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

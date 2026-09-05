@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Ofelia Bello Campaign Website"
+description = "A public campaign website for Ofelia Bello for East Palo Alto City Council, with campaign messaging, priorities, event details, volunteer and newsletter calls to action, and responsive mobile support."
+version = "1.0.0"
+id = "artifacts/ofelia-campaign-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23762
+
+[services.development]
+run = "pnpm --filter @workspace/ofelia-campaign-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ofelia-campaign-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ofelia-campaign-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23762"
+BASE_PATH = "/"
