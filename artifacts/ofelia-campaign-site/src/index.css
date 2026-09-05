@@ -361,7 +361,7 @@
   .priority-card-1 { grid-column: span 2; min-height: 130px; }
   .priority-card h3 { margin-top: 12px; font-size: 1.5rem; }
   .priority-card p { font-size: .6rem; }
-  .record-layout { justify-content: center; }
+  .record-layout, .involved-layout { justify-content: flex-start; }
   .record-intro .chapter-title { max-width: 10ch; }
   .record-intro p { max-width: 340px; margin-top: 14px; font-size: .76rem; }
   .record-item { grid-template-columns: 67px 1fr; gap: 10px; padding: 12px 0; }
