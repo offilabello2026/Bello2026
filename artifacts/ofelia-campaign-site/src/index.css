@@ -207,7 +207,7 @@
 .hero-portrait::before { content: ''; position: absolute; right: 3%; bottom: 0; width: 68%; height: 86%; border-top: 1px solid hsl(var(--accent) / .3); border-left: 1px solid hsl(var(--accent) / .3); }
 .portrait-sun { position: absolute; right: 12%; top: 9%; width: min(25vw, 280px); aspect-ratio: 1; border: 1px solid hsl(var(--gold) / .36); border-radius: 50%; }
 .portrait-sun::after { content: ''; position: absolute; inset: 13%; border: 1px dashed hsl(var(--gold) / .26); border-radius: 50%; animation: orbit 22s linear infinite; }
-.hero-portrait > img:not(.hero-poppy) { position: relative; z-index: 1; width: auto; height: min(92%, 600px); max-width: 88%; object-fit: contain; object-position: bottom center; transform: scale(1.65); transform-origin: bottom center; }
+.hero-portrait > img:not(.hero-poppy) { position: relative; z-index: 1; width: auto; height: min(92%, 820px); max-width: none; object-fit: contain; object-position: bottom center; transform: scale(1.22); transform-origin: bottom center; }
 .event-card { position: absolute; z-index: 3; right: 0; bottom: 8%; display: flex; min-width: 190px; flex-direction: column; gap: 6px; padding: 14px 16px; background: hsl(var(--card)); color: hsl(var(--primary)); box-shadow: 0 16px 28px hsl(258 37% 8% / .25); text-decoration: none; }
 .event-card-kicker { color: hsl(var(--accent)); font-size: .58rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
 .event-card strong { font-size: .8rem; line-height: 1.35; }
@@ -341,7 +341,7 @@
   .hero-portrait { min-height: 260px; flex: 1; }
   .hero-portrait::before { right: 4%; width: 68%; height: 92%; }
   .portrait-sun { top: 0; right: 12%; width: 150px; }
-  .hero-portrait > img:not(.hero-poppy) { height: 100%; max-height: 320px; transform: scale(1.85); }
+  .hero-portrait > img:not(.hero-poppy) { height: 100%; max-height: 300px; max-width: none; transform: scale(1.5); }
   .event-card { right: 10px; bottom: 10px; min-width: 154px; padding: 9px 11px; }
   .event-card-kicker { font-size: .5rem; }
   .event-card strong { font-size: .67rem; }

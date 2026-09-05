@@ -175,11 +175,6 @@ function Hero() {
           <div className="portrait-sun" />
           <div className="portrait-line" />
           <img src={asset('ofelia_photo.png')} alt="Ofelia Bello smiling, standing with one hand on her hip" data-testid="img-hero-ofelia" />
-          <HashLink href="#kickoff" className="event-card" data-testid="link-hero-event">
-            <span className="event-card-kicker mono">Next up</span>
-            <strong>Campaign kickoff<br />at La Cazuela</strong>
-            <span className="event-card-link">Details <ArrowRight size={13} /></span>
-          </HashLink>
           <img src={asset('poppy_flower1.png')} alt="" className="hero-poppy" />
         </div>
       </div>
