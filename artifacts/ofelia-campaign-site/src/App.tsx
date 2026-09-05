@@ -346,12 +346,12 @@ function Home() {
     <div className="campaign-app paper-grain">
       <Header current={current} />
       <main className="chapter-stage" aria-live="polite">
-        <div className={`chapter-panel ${current === 'home' ? 'is-active' : ''}`} aria-hidden={current !== 'home'}><Hero /></div>
-        <div className={`chapter-panel ${current === 'about' ? 'is-active' : ''}`} aria-hidden={current !== 'about'}><About /></div>
-        <div className={`chapter-panel ${current === 'priorities' ? 'is-active' : ''}`} aria-hidden={current !== 'priorities'}><Priorities /></div>
-        <div className={`chapter-panel ${current === 'record' ? 'is-active' : ''}`} aria-hidden={current !== 'record'}><Record /></div>
-        <div className={`chapter-panel ${current === 'kickoff' ? 'is-active' : ''}`} aria-hidden={current !== 'kickoff'}><Kickoff /></div>
-        <div className={`chapter-panel ${current === 'involved' ? 'is-active' : ''}`} aria-hidden={current !== 'involved'}><Involved /></div>
+        <div className={`chapter-panel chapter-panel-dark ${current === 'home' ? 'is-active' : ''}`} aria-hidden={current !== 'home'}><Hero /></div>
+        <div className={`chapter-panel chapter-panel-light ${current === 'about' ? 'is-active' : ''}`} aria-hidden={current !== 'about'}><About /></div>
+        <div className={`chapter-panel chapter-panel-light ${current === 'priorities' ? 'is-active' : ''}`} aria-hidden={current !== 'priorities'}><Priorities /></div>
+        <div className={`chapter-panel chapter-panel-light ${current === 'record' ? 'is-active' : ''}`} aria-hidden={current !== 'record'}><Record /></div>
+        <div className={`chapter-panel chapter-panel-dark ${current === 'kickoff' ? 'is-active' : ''}`} aria-hidden={current !== 'kickoff'}><Kickoff /></div>
+        <div className={`chapter-panel chapter-panel-light ${current === 'involved' ? 'is-active' : ''}`} aria-hidden={current !== 'involved'}><Involved /></div>
       </main>
       <Footer current={current} />
     </div>
