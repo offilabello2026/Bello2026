@@ -54,6 +54,13 @@ const recordItems = [
   { label: 'Today', title: 'Pahali Community Land Trust', text: 'Continuing the work of community ownership and housing stability as executive director.' },
 ];
 
+function truncateCaption(text: string, maxChars = 48): string {
+  if (text.length <= maxChars) return text;
+  const cut = text.slice(0, maxChars);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${cut.slice(0, lastSpace > 0 ? lastSpace : maxChars)}…`;
+}
+
 const galleryPhotos = [
   { src: 'gallery-rent-relief.jpg', caption: 'Organizing COVID-era renter relief for EPA households' },
   { src: 'gallery-bcli-graduation.jpg', caption: 'BCLI — Boards and Commissions Leadership Institute' },
@@ -315,7 +322,7 @@ function Gallery() {
             <button type="button" className="gallery-thumb-btn" onClick={() => setActive(index)} aria-label={`Expand photo: ${photo.caption}`} data-testid={`button-gallery-${index}`}>
               <img src={asset(photo.src)} alt={photo.caption} loading="lazy" />
             </button>
-            <figcaption>{photo.caption}</figcaption>
+            <figcaption>{truncateCaption(photo.caption)}</figcaption>
           </figure>
         ))}
       </div>
