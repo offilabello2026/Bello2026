@@ -1,4 +1,4 @@
-import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
+import { type FormEvent, type ReactNode, type TouchEvent, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
@@ -507,6 +507,7 @@ function Footer({ current }: { current: ChapterId }) {
 
 function Home() {
   const [current, setCurrent] = useState<ChapterId>(() => readChapter());
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const sync = () => setCurrent(readChapter());
@@ -519,10 +520,30 @@ function Home() {
     };
   }, []);
 
+  const onTouchStart = (event: TouchEvent) => {
+    const touch = event.touches[0];
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const onTouchEnd = (event: TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start) return;
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - start.x;
+    const dy = touch.clientY - start.y;
+    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    const currentIndex = chapters.findIndex((chapter) => chapter.id === current);
+    const nextIndex = dx < 0
+      ? (currentIndex + 1) % chapters.length
+      : (currentIndex - 1 + chapters.length) % chapters.length;
+    goToChapter(chapters[nextIndex].id);
+  };
+
   return (
     <div className="campaign-app paper-grain">
       <Header current={current} />
-      <main className="chapter-stage" aria-live="polite">
+      <main className="chapter-stage" aria-live="polite" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <div className={`chapter-panel chapter-panel-dark ${current === 'home' ? 'is-active' : ''}`} aria-hidden={current !== 'home'}><Hero /></div>
         <div className={`chapter-panel chapter-panel-light ${current === 'about' ? 'is-active' : ''}`} aria-hidden={current !== 'about'}><About /></div>
         <div className={`chapter-panel chapter-panel-light ${current === 'priorities' ? 'is-active' : ''}`} aria-hidden={current !== 'priorities'}><Priorities /></div>
