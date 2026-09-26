@@ -232,7 +232,7 @@
 .about-main .text-link { margin-top: 25px; }
 
 /* Priorities */
-.priorities-layout { display: flex; flex-direction: column; width: min(1180px, calc(100% - 56px)); margin-inline: auto; padding-block: 36px; }
+.priorities-layout { display: flex; flex-direction: column; width: min(1180px, calc(100% - 56px)); margin-inline: auto; padding-block: 36px 80px; }
 .chapter-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
 .chapter-heading p { max-width: 330px; margin: 0 0 4px; color: hsl(var(--muted-foreground)); font-size: 1rem; line-height: 1.55; }
 .chapter-heading .chapter-title { margin-top: 16px; }
@@ -382,7 +382,7 @@
   .quote-title { max-width: 13ch; font-size: clamp(2.6rem,  12vw,  4rem); }
   .about-columns { gap: 14px; margin-top: 17px; font-size: 1rem; line-height: 1.5; }
   .about-main .text-link { margin-top: 18px; font-size: 1rem; }
-  .priorities-layout { width: calc(100% - 64px); padding-block: 38px 28px; }
+  .priorities-layout { width: calc(100% - 64px); padding-block: 38px 60px; }
   .chapter-heading { display: block; }
   .chapter-heading p { max-width: 290px; margin-top: 15px; font-size: 1rem; }
   .chapter-heading .chapter-title { margin-top: 13px; }
