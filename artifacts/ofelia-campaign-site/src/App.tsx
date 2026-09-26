@@ -59,7 +59,7 @@ const galleryPhotos = [
   { src: 'gallery-youth-farm-day.jpg', caption: 'Youth farm day in East Palo Alto' },
   { src: 'gallery-rent-stabilization-anniversary.jpg', caption: '35th anniversary of rent stabilization in EPA' },
   { src: 'gallery-yuca-celebration.jpg', caption: 'Celebrating the purchase of the YUCA building' },
-  { src: 'gallery-dia-de-los-muertos.jpg', caption: 'Día de los Muertos with the community' },
+  { src: 'gallery-community-solidarity.jpg', caption: 'Standing in solidarity with the community' },
 ];
 
 const endorsementLogos = [
