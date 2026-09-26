@@ -20,7 +20,7 @@ import NotFound from '@/pages/not-found';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
-const asset = (name: string) => `/campaign-assets/${name}`;
+const asset = (name: string) => `${import.meta.env.BASE_URL}campaign-assets/${name}`;
 
 const chapters = [
   { id: 'home', label: 'Home', kicker: '01' },
