@@ -41,7 +41,7 @@ jobs:
         working-directory: artifacts/ofelia-campaign-site
         env:
           PORT: "5173"
-          BASE_PATH: "/Bello2026/"
+          BASE_PATH: "/"
         run: pnpm build
 
       - uses: actions/configure-pages@v5
