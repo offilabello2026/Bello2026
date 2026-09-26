@@ -55,11 +55,11 @@ const recordItems = [
 
 const galleryPhotos = [
   { src: 'gallery-rent-relief.jpg', caption: 'Organizing COVID-era renter relief for EPA households' },
-  { src: 'gallery-bcli-graduation.jpg', caption: 'BCLI graduation — building community land trust leadership' },
+  { src: 'gallery-bcli-graduation.jpg', caption: 'BCLI — Boards and Commissions Leadership Institute' },
   { src: 'gallery-youth-farm-day.jpg', caption: 'Youth farm day in East Palo Alto' },
   { src: 'gallery-rent-stabilization-anniversary.jpg', caption: '35th anniversary of rent stabilization in EPA' },
   { src: 'gallery-yuca-celebration.jpg', caption: 'Celebrating the purchase of the YUCA building' },
-  { src: 'gallery-community-solidarity.jpg', caption: 'Standing in solidarity with the community' },
+  { src: 'gallery-community-solidarity.jpg', caption: 'Racial justice activism and youth development since college' },
 ];
 
 const endorsementLogos = [
