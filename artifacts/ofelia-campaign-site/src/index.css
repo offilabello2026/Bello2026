@@ -148,7 +148,10 @@
 .nav-item::after { content: ''; position: absolute; right: 0; bottom: -9px; left: 20px; height: 2px; background: hsl(var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
 .nav-item:hover, .nav-item.is-current { color: hsl(var(--primary)); }
 .nav-item.is-current::after, .nav-item:hover::after { transform: scaleX(1); }
-.header-actions { display: flex; align-items: center; gap: 12px; }
+.header-actions { display: flex; align-items: center; gap: 16px; }
+.header-social { display: flex; align-items: center; gap: 14px; }
+.header-social a { display: inline-flex; color: hsl(var(--primary)); transition: color .2s ease, transform .2s ease; }
+.header-social a:hover { color: hsl(var(--accent)); transform: translateY(-2px); }
 .header-cta, .button {
   display: inline-flex;
   align-items: center;
@@ -350,6 +353,12 @@
   .event-card { right: -8px; bottom: 5%; min-width: 170px; padding: 11px 12px; }
   .about-layout, .record-layout, .involved-layout { gap: 45px; }
   .chapter-title { font-size: clamp(2.7rem,  6vw,  4.5rem); }
+}
+
+@media (max-width: 560px) {
+  .header-cta { display: none; }
+  .header-actions { gap: 12px; }
+  .header-social { gap: 12px; }
 }
 
 @media (max-width: 680px) {

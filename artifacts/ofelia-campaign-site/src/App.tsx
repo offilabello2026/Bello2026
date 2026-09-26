@@ -144,6 +144,10 @@ function Header({ current }: { current: ChapterId }) {
           <img src={asset('ofelia_logo.png')} alt="Ofelia Bello for East Palo Alto City Council" />
         </HashLink>
         <div className="header-actions">
+          <nav className="header-social" aria-label="Social media">
+            <a href="https://www.instagram.com/ofelia_4epa/" target="_blank" rel="noreferrer" aria-label="Instagram" data-testid="link-header-instagram"><Instagram size={22} /></a>
+            <a href="https://www.facebook.com/ofelia4epa" target="_blank" rel="noreferrer" aria-label="Facebook" data-testid="link-header-facebook"><Facebook size={22} /></a>
+          </nav>
           <HashLink href="#involved" className="header-cta" data-testid="link-nav-join">
             Join the movement <ArrowRight size={14} />
           </HashLink>
@@ -411,7 +415,7 @@ function Involved() {
         )}
         <div className="involved-actions">
           <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-volunteer"><span className="mono">SHOW UP</span><strong>Volunteer</strong><small>Knock doors, make calls, or help us welcome neighbors.</small><b>Find an event <ArrowRight size={14} /></b></HashLink>
-          <a href="https://www.instagram.com/ofelia_4epa/" target="_blank" rel="noreferrer" className="involved-action" data-testid="link-involved-instagram"><span className="mono">SHARE</span><strong>Spread the word</strong><small>Tell a friend why this city matters to you.</small><b>Follow @ofelia_4epa <Instagram size={14} /><Facebook size={14} /></b></a>
+          <a href="https://www.instagram.com/ofelia_4epa/" target="_blank" rel="noreferrer" className="involved-action" data-testid="link-involved-instagram"><span className="mono">SHARE</span><strong>Spread the word</strong><small>Tell a friend why this city matters to you.</small><b>Follow @ofelia_4epa <Instagram size={20} /><Facebook size={20} /></b></a>
           <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-question"><span className="mono">CONNECT</span><strong>Bring your question</strong><small>The best campaigns listen first. Bring your hopes and ideas.</small><b>Join the conversation <ArrowRight size={14} /></b></HashLink>
         </div>
       </div>
