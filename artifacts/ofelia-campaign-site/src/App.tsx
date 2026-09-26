@@ -144,7 +144,7 @@ function Header({ current }: { current: ChapterId }) {
           <img src={asset('ofelia_logo.png')} alt="Ofelia Bello for East Palo Alto City Council" />
         </HashLink>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {chapters.filter((chapter) => ['about', 'priorities', 'record', 'endorsements', 'kickoff'].includes(chapter.id)).map((chapter) => (
+          {chapters.filter((chapter) => !['home', 'involved'].includes(chapter.id)).map((chapter) => (
             <HashLink
               key={chapter.id}
               href={`#${chapter.id}`}
@@ -219,7 +219,7 @@ function Hero() {
         <div className="hero-portrait">
           <div className="portrait-sun" />
           <div className="portrait-line" />
-          <img src={asset('ofelia_photo.png')} alt="Ofelia Bello smiling, standing with one hand on her hip" data-testid="img-hero-ofelia" />
+          <img src={asset('hero-portrait.jpg')} alt="Ofelia Bello" className="hero-photo-card" data-testid="img-hero-ofelia" />
           <img src={asset('poppy_flower1.png')} alt="" className="hero-poppy" />
         </div>
       </div>
