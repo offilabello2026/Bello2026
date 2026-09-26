@@ -319,6 +319,8 @@
 .signup-form input { min-width: 0; flex: 1; border: 1px solid hsl(var(--primary) / .22); border-radius: 999px; background: hsl(var(--card)); color: hsl(var(--primary)); padding: 0 18px; min-height: 52px; font-size: 1rem; }
 .signup-form input::placeholder { color: hsl(var(--muted-foreground)); }
 .signup-form input:focus { border-color: hsl(var(--accent)); outline: none; }
+.signup-form input:disabled, .signup-form button:disabled { opacity: .6; cursor: not-allowed; }
+.signup-error { max-width: 470px; margin-top: 12px; color: hsl(0 70% 42%); font-size: 1rem; font-weight: 600; }
 .success-message { display: flex; align-items: center; gap: 10px; max-width: 470px; margin-top: 18px; border: 1px solid hsl(var(--secondary) / .44); background: hsl(var(--secondary) / .1); padding: 13px 15px; color: hsl(var(--primary)); font-size: 1rem; font-weight: 600; }
 .success-message svg { color: hsl(var(--secondary)); }
 .involved-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 27px; border-top: 1px solid hsl(var(--primary) / .15); }

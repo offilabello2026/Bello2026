@@ -389,12 +389,30 @@ function Kickoff() {
   );
 }
 
+const SIGNUP_ENDPOINT = 'https://script.google.com/macros/s/AKfycby2bRQRMe3XJEr2yRE6OwRg6sGcFSmxZQ0hsrMbs92Tc4LSV9cLRkqLmPGTAjfRb135ng/exec';
+
 function Involved() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (email.trim()) setSubmitted(true);
+    if (!email.trim()) return;
+    setSubmitting(true);
+    setError(false);
+    try {
+      await fetch(SIGNUP_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
   return (
     <section className="chapter chapter-light involved-layout" aria-labelledby="involved-title">
@@ -407,11 +425,16 @@ function Involved() {
         {submitted ? (
           <div className="success-message" role="status" data-testid="status-newsletter-success"><CheckCircle2 size={19} /> You’re on the neighbor list. Thank you.</div>
         ) : (
-          <form onSubmit={submit} className="signup-form" aria-label="Newsletter signup">
-            <label className="sr-only" htmlFor="campaign-email">Email address</label>
-            <input id="campaign-email" data-testid="input-newsletter-email" type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="your@email.com" />
-            <button type="submit" className="button button-primary" data-testid="button-newsletter-submit">Sign me up <ArrowRight size={15} /></button>
-          </form>
+          <>
+            <form onSubmit={submit} className="signup-form" aria-label="Newsletter signup">
+              <label className="sr-only" htmlFor="campaign-email">Email address</label>
+              <input id="campaign-email" data-testid="input-newsletter-email" type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="your@email.com" disabled={submitting} />
+              <button type="submit" className="button button-primary" data-testid="button-newsletter-submit" disabled={submitting}>
+                {submitting ? 'Signing up…' : 'Sign me up'} <ArrowRight size={15} />
+              </button>
+            </form>
+            {error && <p className="signup-error" role="alert" data-testid="status-newsletter-error">Something went wrong — please try again.</p>}
+          </>
         )}
         <div className="involved-actions">
           <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-volunteer"><span className="mono">SHOW UP</span><strong>Volunteer</strong><small>Knock doors, make calls, or help us welcome neighbors.</small><b>Find an event <ArrowRight size={14} /></b></HashLink>
