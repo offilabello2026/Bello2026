@@ -252,7 +252,7 @@
 .priority-card:hover p { color: hsl(var(--card) / .68); }
 
 /* Record */
-.record-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr); align-items: center; gap: clamp(40px,  8vw,  120px); width: min(1120px, calc(100% - 56px)); margin-inline: auto; padding-block: 42px; }
+.record-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr); align-items: start; gap: clamp(40px,  8vw,  120px); width: min(1120px, calc(100% - 56px)); margin-inline: auto; padding-block: 42px; }
 .record-intro p { max-width: 290px; margin: 25px 0 0; color: hsl(var(--muted-foreground)); font-size: 1rem; line-height: 1.6; }
 .record-intro .chapter-title { max-width: 8ch; margin-top: 16px; }
 .record-list { border-top: 1px solid hsl(var(--primary) / .16); }
@@ -293,7 +293,7 @@
 .kickoff-fliers span { display: block; margin-top: 6px; color: hsl(var(--card) / .6); font-size: 1rem; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 
 /* Kickoff */
-.kickoff-layout { display: grid; grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr); align-items: center; gap: clamp(36px,  7vw,  100px); width: min(1180px, calc(100% - 56px)); margin-inline: auto; padding-block: 36px; }
+.kickoff-layout { display: grid; grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr); align-items: start; gap: clamp(36px,  7vw,  100px); width: min(1180px, calc(100% - 56px)); margin-inline: auto; padding-block: 36px; }
 .kickoff-heading p { max-width: 310px; margin: 23px 0 0; color: hsl(var(--card) / .65); font-size: 1rem; line-height: 1.6; }
 .kickoff-panel { display: grid; grid-template-columns: 1fr 1fr; min-height: 320px; border: 1px solid hsl(var(--card) / .2); }
 .kickoff-details { padding: 22px; }
