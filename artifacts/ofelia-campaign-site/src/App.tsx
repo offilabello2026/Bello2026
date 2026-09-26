@@ -438,7 +438,7 @@ function Involved() {
         )}
         <div className="involved-actions">
           <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-volunteer"><span className="mono">SHOW UP</span><strong>Volunteer</strong><small>Knock doors, make calls, or help us welcome neighbors.</small><b>Find an event <ArrowRight size={14} /></b></HashLink>
-          <a href="https://www.instagram.com/ofelia_4epa/" target="_blank" rel="noreferrer" className="involved-action" data-testid="link-involved-instagram"><span className="mono">SHARE</span><strong>Spread the word</strong><small>Tell a friend why this city matters to you.</small><b>Follow @ofelia_4epa <Instagram size={20} /><Facebook size={20} /></b></a>
+          <a href="https://www.instagram.com/ofelia_4epa/" target="_blank" rel="noreferrer" className="involved-action" data-testid="link-involved-instagram"><span className="mono">SHARE</span><strong>Spread the word</strong><small>Tell a friend why this city matters to you.</small><b>Follow <Instagram size={24} /><Facebook size={24} /></b></a>
           <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-question"><span className="mono">CONNECT</span><strong>Bring your question</strong><small>The best campaigns listen first. Bring your hopes and ideas.</small><b>Join the conversation <ArrowRight size={14} /></b></HashLink>
         </div>
       </div>
