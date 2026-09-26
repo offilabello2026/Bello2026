@@ -143,18 +143,6 @@ function Header({ current }: { current: ChapterId }) {
         <HashLink href="#home" className="brand-mark" data-testid="link-brand-home" onClick={() => setOpen(false)}>
           <img src={asset('ofelia_logo.png')} alt="Ofelia Bello for East Palo Alto City Council" />
         </HashLink>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {chapters.filter((chapter) => !['home', 'involved'].includes(chapter.id)).map((chapter) => (
-            <HashLink
-              key={chapter.id}
-              href={`#${chapter.id}`}
-              className={`nav-item ${current === chapter.id ? 'is-current' : ''}`}
-              data-testid={`link-nav-${chapter.id}`}
-            >
-              <span>{chapter.kicker}</span>{chapter.label}
-            </HashLink>
-          ))}
-        </nav>
         <div className="header-actions">
           <HashLink href="#involved" className="header-cta" data-testid="link-nav-join">
             Join the movement <ArrowRight size={14} />
@@ -183,7 +171,6 @@ function Header({ current }: { current: ChapterId }) {
                 className={`mobile-nav-item ${current === chapter.id ? 'is-current' : ''}`}
                 data-testid={`link-mobile-${chapter.id}`}
               >
-                <span className="mono">{chapter.kicker}</span>
                 <span>{chapter.label}</span>
                 {current === chapter.id && <span className="mobile-active-dot" aria-hidden="true" />}
               </HashLink>
@@ -261,7 +248,7 @@ function Priorities() {
       <div className="priority-grid">
         {priorities.map((item, index) => (
           <article key={item.number} className={`priority-card priority-card-${index + 1}`} data-testid={`card-priority-${item.number}`}>
-            <div className="priority-top"><span className="mono">{item.number}</span><ArrowRight size={16} /></div>
+            <div className="priority-top"><ArrowRight size={16} /></div>
             <h3 className="display">{item.title}</h3>
             <p>{item.text}</p>
           </article>
@@ -423,9 +410,9 @@ function Involved() {
           </form>
         )}
         <div className="involved-actions">
-          <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-volunteer"><span className="mono">01 / SHOW UP</span><strong>Volunteer</strong><small>Knock doors, make calls, or help us welcome neighbors.</small><b>Find an event <ArrowRight size={14} /></b></HashLink>
-          <a href="https://www.instagram.com/ofelia_4epa/" target="_blank" rel="noreferrer" className="involved-action" data-testid="link-involved-instagram"><span className="mono">02 / SHARE</span><strong>Spread the word</strong><small>Tell a friend why this city matters to you.</small><b>Follow @ofelia_4epa <Instagram size={14} /><Facebook size={14} /></b></a>
-          <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-question"><span className="mono">03 / CONNECT</span><strong>Bring your question</strong><small>The best campaigns listen first. Bring your hopes and ideas.</small><b>Join the conversation <ArrowRight size={14} /></b></HashLink>
+          <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-volunteer"><span className="mono">SHOW UP</span><strong>Volunteer</strong><small>Knock doors, make calls, or help us welcome neighbors.</small><b>Find an event <ArrowRight size={14} /></b></HashLink>
+          <a href="https://www.instagram.com/ofelia_4epa/" target="_blank" rel="noreferrer" className="involved-action" data-testid="link-involved-instagram"><span className="mono">SHARE</span><strong>Spread the word</strong><small>Tell a friend why this city matters to you.</small><b>Follow @ofelia_4epa <Instagram size={14} /><Facebook size={14} /></b></a>
+          <HashLink href="#kickoff" className="involved-action" data-testid="link-involved-question"><span className="mono">CONNECT</span><strong>Bring your question</strong><small>The best campaigns listen first. Bring your hopes and ideas.</small><b>Join the conversation <ArrowRight size={14} /></b></HashLink>
         </div>
       </div>
     </section>
