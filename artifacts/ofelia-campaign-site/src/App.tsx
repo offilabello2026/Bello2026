@@ -1,4 +1,5 @@
 import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   ArrowRight,
@@ -191,7 +192,7 @@ function Hero() {
     <section className="chapter chapter-hero" aria-labelledby="hero-title">
       <div className="hero-grid">
         <div className="hero-copy">
-          <div className="eyebrow">East Palo Alto City Council</div>
+          <img src={asset('vote_ofelia_logo.png')} alt="Vote Ofelia Bello for East Palo Alto City Council" className="hero-vote-logo" />
           <h1 id="hero-title" className="display hero-title">
             The city <em>we</em> call home.
           </h1>
@@ -286,6 +287,19 @@ function Record() {
 }
 
 function Gallery() {
+  const [active, setActive] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (active === null) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setActive(null);
+      if (event.key === 'ArrowRight') setActive((i) => (i === null ? i : (i + 1) % galleryPhotos.length));
+      if (event.key === 'ArrowLeft') setActive((i) => (i === null ? i : (i - 1 + galleryPhotos.length) % galleryPhotos.length));
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [active]);
+
   return (
     <section className="chapter chapter-light gallery-layout" aria-labelledby="gallery-title">
       <div className="chapter-heading">
@@ -296,13 +310,35 @@ function Gallery() {
         <p>A campaign doesn’t start the work — it continues it. A few moments from a decade of organizing alongside East Palo Alto.</p>
       </div>
       <div className="gallery-grid">
-        {galleryPhotos.map((photo) => (
+        {galleryPhotos.map((photo, index) => (
           <figure key={photo.src}>
-            <img src={asset(photo.src)} alt={photo.caption} loading="lazy" />
+            <button type="button" className="gallery-thumb-btn" onClick={() => setActive(index)} aria-label={`Expand photo: ${photo.caption}`} data-testid={`button-gallery-${index}`}>
+              <img src={asset(photo.src)} alt={photo.caption} loading="lazy" />
+            </button>
             <figcaption>{photo.caption}</figcaption>
           </figure>
         ))}
       </div>
+      {active !== null && createPortal(
+        <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={galleryPhotos[active].caption} onClick={() => setActive(null)}>
+          <button type="button" className="gallery-lightbox-close" aria-label="Close" onClick={() => setActive(null)} data-testid="button-gallery-close">
+            <X size={26} />
+          </button>
+          <button type="button" className="gallery-lightbox-nav gallery-lightbox-prev" aria-label="Previous photo" onClick={(e) => { e.stopPropagation(); setActive((i) => (i === null ? i : (i - 1 + galleryPhotos.length) % galleryPhotos.length)); }}>
+            <ChevronLeft size={28} />
+          </button>
+          <img
+            src={asset(galleryPhotos[active].src)}
+            alt={galleryPhotos[active].caption}
+            className="gallery-lightbox-img"
+          />
+          <button type="button" className="gallery-lightbox-nav gallery-lightbox-next" aria-label="Next photo" onClick={(e) => { e.stopPropagation(); setActive((i) => (i === null ? i : (i + 1) % galleryPhotos.length)); }}>
+            <ChevronRight size={28} />
+          </button>
+          <div className="gallery-lightbox-caption" onClick={(e) => e.stopPropagation()}>{galleryPhotos[active].caption}</div>
+        </div>,
+        document.body
+      )}
     </section>
   );
 }
