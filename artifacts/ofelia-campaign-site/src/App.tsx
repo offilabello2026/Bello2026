@@ -31,7 +31,7 @@ const chapters = [
   { id: 'gallery', label: 'In the community', kicker: '05' },
   { id: 'endorsements', label: 'Endorsements', kicker: '06' },
   { id: 'qa', label: 'Where she stands', kicker: '07' },
-  { id: 'kickoff', label: 'Kickoff', kicker: '08' },
+  { id: 'kickoff', label: 'Events', kicker: '08' },
   { id: 'involved', label: 'Get involved', kicker: '09' },
 ] as const;
 
@@ -70,16 +70,36 @@ const galleryPhotos = [
   { src: 'gallery-community-solidarity.jpg', caption: 'Racial justice activism and youth development since college' },
 ];
 
-const endorsementLogos = [
+const endorsementLogos: { src?: string; name: string }[] = [
   { src: 'logo-working-families-party.png', name: 'Working Families Party of California' },
   { src: 'logo-smc-labor-council.jpg', name: 'San Mateo County Labor Council' },
   { src: 'logo-carpenters-union.png', name: 'North Coast States Carpenters Union' },
+  { src: 'logo-ibew-617.jpg', name: 'IBEW Local 617' },
+  { src: 'logo-seiu-521.png', name: 'SEIU Local 521' },
+  { src: 'logo-peninsula-dsa.png', name: 'Peninsula DSA' },
+  { src: 'logo-green-party.png', name: 'Santa Clara County Green Party' },
+  { src: 'logo-organize-for-peace.png', name: 'Organize for Peace' },
+  { src: 'logo-reach-coalition.png', name: 'REACH Coalition — November 2026 Priority Race' },
+  { name: 'East Palo Alto Council of Tenants' },
+  { name: 'E. Okeefe Tenant Association' },
 ];
 
 const endorsers = [
+  { name: 'Noelia Corzo', role: 'San Mateo County Supervisor' },
+  { name: 'Laura Nunez', role: 'Ravenswood City School District Board of Trustees' },
+  { name: 'Mele Latu', role: 'Ravenswood City School District Board of Trustees' },
+  { name: 'Jenny Bloom', role: 'Ravenswood City School District Board of Trustees' },
   { name: 'Javanni Brown', role: 'East Palo Alto Planning Commissioner' },
   { name: 'Francisco Guzman', role: 'Rent Stabilization Board Member' },
   { name: 'Laura Rubio', role: 'Rent Stabilization Board Member' },
+  { name: 'Anna Turner', role: 'Community Leader' },
+  { name: 'Dr. Frank J. Omowale Satterwhite', role: 'Community Leader' },
+  { name: 'Heather Starnes-Logwood', role: 'Community Leader' },
+  { name: 'Joel Valencia', role: 'Community Leader' },
+  { name: 'Kenia Najar', role: 'Community Leader' },
+  { name: 'Kyra Brown', role: 'Community Leader' },
+  { name: 'Sharifa Wilson', role: 'Community Leader' },
+  { name: 'Vanessa Smith', role: 'Community Leader' },
 ];
 
 const qaItems = [
@@ -362,8 +382,8 @@ function Endorsements() {
       </div>
       <div className="endorsement-logos">
         {endorsementLogos.map((logo) => (
-          <div key={logo.src} className="endorsement-logo-card">
-            <img src={asset(logo.src)} alt={logo.name} />
+          <div key={logo.name} className={`endorsement-logo-card ${logo.src ? '' : 'endorsement-text-card'}`}>
+            {logo.src ? <img src={asset(logo.src)} alt={logo.name} /> : null}
             <span>{logo.name}</span>
           </div>
         ))}
@@ -401,38 +421,33 @@ function Kickoff() {
   return (
     <section className="chapter chapter-dark kickoff-layout" aria-labelledby="kickoff-title">
       <div className="kickoff-heading">
-        <div className="eyebrow eyebrow-gold">Kickoff recap</div>
-        <h2 id="kickoff-title" className="display chapter-title chapter-title-light">Thank you for<br /><em>showing up.</em></h2>
-        <p>On September 5, neighbors gathered at Taqueria La Cazuela for good food, honest conversation, and the launch of this campaign.</p>
+        <div className="eyebrow eyebrow-gold">Upcoming event</div>
+        <h2 id="kickoff-title" className="display chapter-title chapter-title-light">Come to the<br /><em>garden party.</em></h2>
+        <p>Come join us for food and refreshments! Talk with Ofelia about her vision for the city and how she plans to uplift community voices. Come ready to share your thoughts and priorities, ask questions, and talk about the future of our city.</p>
+        <p className="kickoff-callout">Your voice matters &amp; we want to hear from you!</p>
       </div>
       <div className="kickoff-panel">
         <div className="kickoff-details">
-          <div className="detail-row"><CalendarDays size={18} /><div><span className="mono detail-label">Held</span><strong>Saturday, September 5</strong></div></div>
-          <div className="detail-row"><Clock3 size={18} /><div><span className="mono detail-label">Time</span><strong>11:30 AM – 12:30 PM</strong></div></div>
-          <div className="detail-row"><MapPin size={18} /><div><span className="mono detail-label">Where</span><strong>Taqueria La Cazuela</strong><small>2390 Clarke Ave · garden / patio</small></div></div>
-          <p className="spanish-note"><strong>En español:</strong> Lanzamiento de campaña para consejo municipal, celebrado el 5 de septiembre en La Cazuela.</p>
-          <HashLink href="#involved" className="button button-primary" data-testid="link-kickoff-rsvp">See what’s next <ArrowRight size={15} /></HashLink>
-          <div className="kickoff-fliers">
-            <a href={asset('kickoff-flier-en.png')} target="_blank" rel="noreferrer" data-testid="link-flier-en">
-              <img src={asset('kickoff-flier-en.png')} alt="Campaign kickoff flier in English" />
-              <span>English flier</span>
-            </a>
-            <a href={asset('kickoff-flier-es.png')} target="_blank" rel="noreferrer" data-testid="link-flier-es">
-              <img src={asset('kickoff-flier-es.png')} alt="Volante del lanzamiento de campaña en español" />
-              <span>Volante en español</span>
-            </a>
-          </div>
+          <div className="detail-row"><CalendarDays size={18} /><div><span className="mono detail-label">Date</span><strong>Saturday, October 24</strong></div></div>
+          <div className="detail-row"><Clock3 size={18} /><div><span className="mono detail-label">Time</span><strong>10:30 AM – 12:00 PM</strong></div></div>
+          <div className="detail-row"><MapPin size={18} /><div><span className="mono detail-label">Where</span><strong>Garden Party</strong><small>1523 Woodland Ave, East Palo Alto, CA 94303</small></div></div>
+          <p className="spanish-note"><strong>En español:</strong> Fiesta en el Jardín — sábado 24 de octubre, 10:30 am–12 pm, 1523 Woodland Ave. ¡Tu voz importa y queremos escucharte!</p>
+          <a className="button button-primary" href="https://www.google.com/maps/search/?api=1&query=1523+Woodland+Ave+East+Palo+Alto+CA+94303" target="_blank" rel="noreferrer" data-testid="link-event-directions">Get directions <ArrowRight size={15} /></a>
         </div>
-        <div className="kickoff-map">
-          <img src={asset('venue_map.png')} alt="Aerial map of Taqueria La Cazuela at Clarke Avenue and Bay Road" data-testid="img-event-map" />
-          <div className="map-tag"><MapPin size={14} /> East Palo Alto, CA</div>
+        <div className="event-flyers">
+          <a href={asset('event-garden-party-en.jpg')} target="_blank" rel="noreferrer" data-testid="link-flier-en">
+            <img src={asset('event-garden-party-en.jpg')} alt="Garden Party flyer in English: Saturday October 24, 10:30 AM to 12 PM, 1523 Woodland Ave" />
+            <span>English flyer</span>
+          </a>
+          <a href={asset('event-garden-party-es.jpg')} target="_blank" rel="noreferrer" data-testid="link-flier-es">
+            <img src={asset('event-garden-party-es.jpg')} alt="Volante de la Fiesta en el Jardín en español: sábado 24 de octubre, 10:30 AM a 12 PM, 1523 Woodland Ave" />
+            <span>Volante en español</span>
+          </a>
         </div>
       </div>
     </section>
   );
 }
-
-const SIGNUP_ENDPOINT = 'https://script.google.com/macros/s/AKfycby2bRQRMe3XJEr2yRE6OwRg6sGcFSmxZQ0hsrMbs92Tc4LSV9cLRkqLmPGTAjfRb135ng/exec';
 
 function Involved() {
   const [email, setEmail] = useState('');
