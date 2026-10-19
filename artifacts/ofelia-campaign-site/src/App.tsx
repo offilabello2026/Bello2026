@@ -475,6 +475,8 @@ function Kickoff() {
   );
 }
 
+const SIGNUP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw429psbN1Q25wDbOKc-91NA2VDOFRrY06Y0OP379FTYNYeKMol_Xcw0oJydUg6qdLFeg/exec';
+
 function Involved() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
