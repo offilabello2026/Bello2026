@@ -418,6 +418,7 @@ function QA() {
 }
 
 function Kickoff() {
+  const [lang, setLang] = useState<'en' | 'es'>('en');
   return (
     <section className="chapter chapter-dark kickoff-layout" aria-labelledby="kickoff-title">
       <div className="kickoff-heading">
@@ -435,13 +436,15 @@ function Kickoff() {
           <a className="button button-primary" href="https://www.google.com/maps/search/?api=1&query=1523+Woodland+Ave+East+Palo+Alto+CA+94303" target="_blank" rel="noreferrer" data-testid="link-event-directions">Get directions <ArrowRight size={15} /></a>
         </div>
         <div className="event-flyers">
-          <a href={asset('event-garden-party-en.jpg')} target="_blank" rel="noreferrer" data-testid="link-flier-en">
-            <img src={asset('event-garden-party-en.jpg')} alt="Garden Party flyer in English: Saturday October 24, 10:30 AM to 12 PM, 1523 Woodland Ave" />
-            <span>English flyer</span>
-          </a>
-          <a href={asset('event-garden-party-es.jpg')} target="_blank" rel="noreferrer" data-testid="link-flier-es">
-            <img src={asset('event-garden-party-es.jpg')} alt="Volante de la Fiesta en el Jardín en español: sábado 24 de octubre, 10:30 AM a 12 PM, 1523 Woodland Ave" />
-            <span>Volante en español</span>
+          <div className="lang-toggle" role="group" aria-label="Flyer language">
+            <button type="button" className={lang === 'en' ? 'is-on' : ''} aria-pressed={lang === 'en'} onClick={() => setLang('en')} data-testid="button-flyer-en">English</button>
+            <button type="button" className={lang === 'es' ? 'is-on' : ''} aria-pressed={lang === 'es'} onClick={() => setLang('es')} data-testid="button-flyer-es">Español</button>
+          </div>
+          <a href={asset(`event-garden-party-${lang}.jpg`)} target="_blank" rel="noreferrer" data-testid="link-flier">
+            <img
+              src={asset(`event-garden-party-${lang}.jpg`)}
+              alt={lang === 'en' ? 'Garden Party flyer: Saturday October 24, 10:30 AM to 12 PM, 1523 Woodland Ave' : 'Volante de la Fiesta en el Jardín: sábado 24 de octubre, 10:30 AM a 12 PM, 1523 Woodland Ave'}
+            />
           </a>
         </div>
       </div>

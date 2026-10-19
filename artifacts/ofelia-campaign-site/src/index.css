@@ -310,9 +310,12 @@
 .qa-item p { max-width: 68ch; margin: 12px 0 0; color: hsl(var(--muted-foreground)); font-size: 1rem; line-height: 1.6; }
 
 /* Kickoff fliers */
-.event-flyers { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; align-content: start; }
+.event-flyers { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 14px; }
+.lang-toggle { display: inline-flex; border: 1px solid hsl(var(--card) / .35); border-radius: 999px; overflow: hidden; }
+.lang-toggle button { border: 0; background: transparent; color: hsl(var(--card)); padding: .6rem 1.2rem; font-size: 1rem; font-weight: 700; cursor: pointer; }
+.lang-toggle button.is-on { background: hsl(var(--accent)); color: hsl(var(--primary)); }
 .event-flyers a { display: block; text-decoration: none; }
-.event-flyers img { display: block; width: 100%; height: auto; border: 1px solid hsl(var(--card) / .2); }
+.event-flyers img { display: block; width: 100%; max-width: 380px; height: auto; border: 1px solid hsl(var(--card) / .2); }
 .event-flyers span { display: block; margin-top: 6px; color: hsl(var(--card) / .7); font-size: 1rem; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .kickoff-callout { color: hsl(var(--gold)) !important; font-weight: 700; }
 .endorsement-text-card span { font-family: var(--app-font-serif); font-size: 1.35rem; color: hsl(var(--primary)); line-height: 1.1; }
