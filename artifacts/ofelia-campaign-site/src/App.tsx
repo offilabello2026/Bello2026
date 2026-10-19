@@ -90,7 +90,7 @@ const endorsers = [
   { name: 'Mele Latu', role: 'Ravenswood City School District Board of Trustees' },
   { name: 'Jenny Bloom', role: 'Ravenswood City School District Board of Trustees' },
   { name: 'Javanni Brown', role: 'East Palo Alto Planning Commissioner' },
-  { name: 'Francisco Guzman', role: 'Rent Stabilization Board Member' },
+  { name: 'Francisca Guzman', role: 'Rent Stabilization Board Member' },
   { name: 'Laura Rubio', role: 'Rent Stabilization Board Member' },
   { name: 'Anna Turner', role: 'Community Leader' },
   { name: 'Dr. Frank J. Omowale Satterwhite', role: 'Community Leader' },
