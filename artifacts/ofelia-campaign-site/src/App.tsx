@@ -417,23 +417,46 @@ function QA() {
   );
 }
 
+const eventCopy = {
+  en: {
+    eyebrow: 'Upcoming event',
+    title: <>Come to the<br /><em>garden party.</em></>,
+    body: 'Come join us for food and refreshments! Talk with Ofelia about her vision for the city and how she plans to uplift community voices. Come ready to share your thoughts and priorities, ask questions, and talk about the future of our city.',
+    callout: 'Your voice matters & we want to hear from you!',
+    date: 'Date', dateValue: 'Saturday, October 24',
+    time: 'Time', timeValue: '10:30 AM – 12:00 PM',
+    where: 'Where', whereName: 'Garden Party',
+    directions: 'Get directions',
+  },
+  es: {
+    eyebrow: 'Próximo evento',
+    title: <>Ven a la<br /><em>fiesta en el jardín.</em></>,
+    body: '¡Acompáñanos a disfrutar comida y refrescos! Esta es una oportunidad para disfrutar de estar en comunidad con Ofelia y aprender sobre su visión para la ciudad y cómo planea dar voz a la comunidad. Ven preparado para hacer preguntas, compartir tus ideas y dialogar sobre el futuro de nuestra ciudad.',
+    callout: '¡Tu voz importa y queremos escucharte!',
+    date: 'Fecha', dateValue: 'Sábado, 24 de octubre',
+    time: 'Hora', timeValue: '10:30 AM – 12:00 PM',
+    where: 'Dónde', whereName: 'Fiesta en el Jardín',
+    directions: 'Cómo llegar',
+  },
+};
+
 function Kickoff() {
   const [lang, setLang] = useState<'en' | 'es'>('en');
+  const t = eventCopy[lang];
   return (
-    <section className="chapter chapter-dark kickoff-layout" aria-labelledby="kickoff-title">
+    <section className="chapter chapter-dark kickoff-layout" aria-labelledby="kickoff-title" lang={lang}>
       <div className="kickoff-heading">
-        <div className="eyebrow eyebrow-gold">Upcoming event</div>
-        <h2 id="kickoff-title" className="display chapter-title chapter-title-light">Come to the<br /><em>garden party.</em></h2>
-        <p>Come join us for food and refreshments! Talk with Ofelia about her vision for the city and how she plans to uplift community voices. Come ready to share your thoughts and priorities, ask questions, and talk about the future of our city.</p>
-        <p className="kickoff-callout">Your voice matters &amp; we want to hear from you!</p>
+        <div className="eyebrow eyebrow-gold">{t.eyebrow}</div>
+        <h2 id="kickoff-title" className="display chapter-title chapter-title-light">{t.title}</h2>
+        <p>{t.body}</p>
+        <p className="kickoff-callout">{t.callout}</p>
       </div>
       <div className="kickoff-panel">
         <div className="kickoff-details">
-          <div className="detail-row"><CalendarDays size={18} /><div><span className="mono detail-label">Date</span><strong>Saturday, October 24</strong></div></div>
-          <div className="detail-row"><Clock3 size={18} /><div><span className="mono detail-label">Time</span><strong>10:30 AM – 12:00 PM</strong></div></div>
-          <div className="detail-row"><MapPin size={18} /><div><span className="mono detail-label">Where</span><strong>Garden Party</strong><small>1523 Woodland Ave, East Palo Alto, CA 94303</small></div></div>
-          <p className="spanish-note"><strong>En español:</strong> Fiesta en el Jardín — sábado 24 de octubre, 10:30 am–12 pm, 1523 Woodland Ave. ¡Tu voz importa y queremos escucharte!</p>
-          <a className="button button-primary" href="https://www.google.com/maps/search/?api=1&query=1523+Woodland+Ave+East+Palo+Alto+CA+94303" target="_blank" rel="noreferrer" data-testid="link-event-directions">Get directions <ArrowRight size={15} /></a>
+          <div className="detail-row"><CalendarDays size={18} /><div><span className="mono detail-label">{t.date}</span><strong>{t.dateValue}</strong></div></div>
+          <div className="detail-row"><Clock3 size={18} /><div><span className="mono detail-label">{t.time}</span><strong>{t.timeValue}</strong></div></div>
+          <div className="detail-row"><MapPin size={18} /><div><span className="mono detail-label">{t.where}</span><strong>{t.whereName}</strong><small>1523 Woodland Ave, East Palo Alto, CA 94303</small></div></div>
+          <a className="button button-primary" href="https://www.google.com/maps/search/?api=1&query=1523+Woodland+Ave+East+Palo+Alto+CA+94303" target="_blank" rel="noreferrer" data-testid="link-event-directions">{t.directions} <ArrowRight size={15} /></a>
         </div>
         <div className="event-flyers">
           <div className="lang-toggle" role="group" aria-label="Flyer language">
