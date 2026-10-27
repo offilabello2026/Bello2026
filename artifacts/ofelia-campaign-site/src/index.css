@@ -198,7 +198,7 @@
 .button-primary:hover { background: hsl(41 96% 60%); }
 .button-donate { background: hsl(var(--secondary)); border-color: hsl(var(--secondary)); color: hsl(var(--card)); }
 .button-donate:hover { background: hsl(0 70% 35%); transform: translateY(-2px); }
-.involved-donate { margin-bottom: 20px; }
+.involved-donate { margin: 16px 0 20px; }
 .button-outline-light { border-color: hsl(var(--card) / .38); color: hsl(var(--card)); }
 .button-outline-light:hover { background: hsl(var(--card) / .1); border-color: hsl(var(--card)); }
 .text-link { display: inline-flex; align-items: center; gap: .55rem; border-bottom: 2px solid hsl(var(--accent)); padding-bottom: 5px; color: hsl(var(--primary)); font-size: 1rem; font-weight: 700; letter-spacing: .09em; text-decoration: none; text-transform: uppercase; }
