@@ -21,6 +21,7 @@ import NotFound from '@/pages/not-found';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
+const DONATE_URL = 'https://www.zeffy.com/en-US/donation-form/ofelia-for-east-palo-alto-city-council--2026';
 const asset = (name: string) => `${import.meta.env.BASE_URL}campaign-assets/${name}`;
 
 const chapters = [
@@ -176,9 +177,9 @@ function Header({ current }: { current: ChapterId }) {
             <a href="https://www.instagram.com/ofelia_4epa/" target="_blank" rel="noreferrer" aria-label="Instagram" data-testid="link-header-instagram"><Instagram size={22} /></a>
             <a href="https://www.facebook.com/ofelia4epa" target="_blank" rel="noreferrer" aria-label="Facebook" data-testid="link-header-facebook"><Facebook size={22} /></a>
           </nav>
-          <HashLink href="#involved" className="header-cta" data-testid="link-nav-join">
-            Join the movement <ArrowRight size={14} />
-          </HashLink>
+          <a href={DONATE_URL} target="_blank" rel="noreferrer" className="header-cta" data-testid="link-nav-donate">
+            Donate <ArrowRight size={14} />
+          </a>
           <button
             type="button"
             className="menu-toggle"
@@ -228,6 +229,7 @@ function Hero() {
             <HashLink href="#involved" className="button button-primary" data-testid="link-hero-kickoff">
               Get involved <ArrowRight size={15} />
             </HashLink>
+            <a href={DONATE_URL} target="_blank" rel="noreferrer" className="button button-donate" data-testid="link-hero-donate">Donate</a>
             <HashLink href="#about" className="button button-outline-light" data-testid="link-hero-about">Meet Ofelia</HashLink>
           </div>
           <div className="hero-note">
@@ -508,6 +510,7 @@ function Involved() {
       </div>
       <div className="involved-content">
         <p className="involved-lede">Campaigns like this run on neighbors, not corporate donors. Get updates, invitations, and ways to lend a hand.</p>
+        <a href={DONATE_URL} target="_blank" rel="noreferrer" className="button button-donate involved-donate" data-testid="link-involved-donate">Donate to the campaign <ArrowRight size={15} /></a>
         {submitted ? (
           <div className="success-message" role="status" data-testid="status-newsletter-success"><CheckCircle2 size={19} /> You’re on the neighbor list. Thank you.</div>
         ) : (
